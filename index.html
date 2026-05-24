@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Antropocene – M Tashriful Alom</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/black.min.css"/>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --earth:  #c8a96e;
+  --green:  #4a7c59;
+  --dark:   #0d0d0d;
+  --light:  #f0ebe0;
+  --muted:  rgba(200,169,110,0.13);
+}
+
+.reveal { font-family: 'DM Sans', sans-serif !important; }
+.reveal h1, .reveal h2, .reveal h3 { font-family: 'Playfair Display', serif !important; text-transform: none !important; }
+.reveal .slides section { padding: 0 !important; }
+.reveal .progress span { background: var(--earth) !important; }
+.reveal .slide-number { color: var(--earth) !important; font-size: 0.6rem; letter-spacing: 0.15em; }
+
+/* ── SLIDE WRAPPERS ── */
+.s-wrap {
+  width: 100%; height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  padding: 44px 80px; box-sizing: border-box;
+  text-align: center; color: var(--light);
+  position: relative; overflow: hidden;
+}
+
+/* ── BADGE / LABEL ── */
+.badge {
+  font-size: 0.58rem; letter-spacing: 0.45em;
+  text-transform: uppercase; color: var(--earth);
+  border: 1px solid rgba(200,169,110,0.6); padding: 5px 16px;
+  border-radius: 2px; margin-bottom: 22px; display: inline-block;
+}
+.slide-label {
+  font-size: 0.58rem; letter-spacing: 0.4em;
+  text-transform: uppercase; color: var(--earth); margin-bottom: 8px;
+}
+
+/* ── IMAGE PLACEHOLDERS ── */
+.img-ph {
+  width: 100%; max-width: 500px; aspect-ratio: 16/8;
+  background: var(--muted);
+  border: 1.5px dashed rgba(200,169,110,0.4);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(200,169,110,0.45); font-size: 0.68rem;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  margin: 0 auto 18px;
+}
+.img-ph-wide {
+  width: 100%; max-width: 680px; aspect-ratio: 21/5;
+  background: var(--muted);
+  border: 1.5px dashed rgba(200,169,110,0.35);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(200,169,110,0.4); font-size: 0.65rem;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  margin: 0 auto 16px;
+}
+
+/* ═══════════ SLIDE 1 ═══════════ */
+.s1-bg {
+  background: radial-gradient(ellipse at 28% 65%, #1e3d28 0%, #0d0d0d 68%);
+}
+.s1-bg::before {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:
+    repeating-linear-gradient(0deg,transparent,transparent 58px,rgba(200,169,110,0.04) 58px,rgba(200,169,110,0.04) 59px),
+    repeating-linear-gradient(90deg,transparent,transparent 58px,rgba(200,169,110,0.04) 58px,rgba(200,169,110,0.04) 59px);
+}
+.s1-bg h1 {
+  font-size: clamp(2.8rem,5.5vw,4rem) !important;
+  line-height: 1.08; color: var(--light); margin: 0 0 8px !important;
+}
+.s1-bg h1 em { color: var(--earth); font-style: normal; }
+.s1-subtitle {
+  font-size: 0.88rem; color: rgba(240,235,224,0.52);
+  max-width: 600px; line-height: 1.75; margin: 12px auto 0;
+}
+.divider { width: 52px; height: 2px; background: linear-gradient(90deg,var(--earth),transparent); margin: 20px auto; }
+.meta { font-size: 0.68rem; letter-spacing: 0.14em; color: rgba(240,235,224,0.3); text-transform: uppercase; }
+
+/* ═══════════ SLIDE 2 ═══════════ */
+.s2-bg { background: linear-gradient(140deg,#0e1a12 0%,#111 60%,#0a1a14 100%); }
+.s2-bg h2 { font-size: clamp(1.4rem,2.8vw,1.9rem) !important; margin-bottom: 10px !important; }
+.s2-layout { display: flex; gap: 32px; align-items: center; max-width: 900px; width: 100%; text-align: left; }
+.s2-text { flex: 1; }
+.s2-text p { font-size: 0.8rem; color: rgba(240,235,224,0.65); line-height: 1.78; margin-bottom: 10px; }
+.s2-text p strong { color: var(--earth); }
+.s2-img { flex: 0 0 270px; }
+.s2-img .img-ph { max-width: 270px; aspect-ratio: 3/4; margin: 0; }
+
+/* ═══════════ SLIDE 3 ═══════════ */
+.s3-bg { background: linear-gradient(160deg,#0d1c10 0%,#0d0d0d 100%); }
+.s3-bg h2 { font-size: clamp(1.3rem,2.5vw,1.8rem) !important; margin-bottom: 4px !important; }
+.grid4 {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 12px; width: 100%; max-width: 820px; margin: 12px auto 0;
+}
+.card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(200,169,110,0.18);
+  border-radius: 8px; padding: 16px 15px; text-align: left;
+  transition: border-color 0.3s, background 0.3s;
+}
+.card:hover { border-color: rgba(200,169,110,0.5); background: rgba(200,169,110,0.05); }
+.card .icon { font-size: 1.3rem; margin-bottom: 7px; display: block; }
+.card h3 { font-family: 'DM Sans', sans-serif !important; font-weight: 600; font-size: 0.78rem !important; color: var(--earth); margin: 0 0 5px !important; }
+.card p { font-size: 0.72rem; color: rgba(240,235,224,0.58); line-height: 1.62; margin: 0; }
+
+/* ═══════════ SLIDE 4 ═══════════ */
+.s4-bg { background: radial-gradient(ellipse at 75% 15%, #2a1a08 0%, #0d0d0d 62%); }
+.s4-bg h2 { font-size: clamp(1.3rem,2.5vw,1.8rem) !important; margin-bottom: 6px !important; }
+.s4-layout { display: flex; gap: 28px; align-items: flex-start; max-width: 900px; width: 100%; }
+.timeline { flex: 1; display: flex; flex-direction: column; position: relative; }
+.timeline::before {
+  content:''; position:absolute; left:9px; top:10px; bottom:10px;
+  width: 2px; background: linear-gradient(180deg,var(--earth),transparent);
+}
+.t-item { display: flex; gap: 16px; align-items: flex-start; padding: 8px 0; }
+.t-dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--earth); border: 2px solid #0d0d0d;
+  flex-shrink: 0; margin-top: 5px; z-index: 1; position: relative; left: 5px;
+}
+.t-body { text-align: left; }
+.t-body strong { color: var(--earth); font-size: 0.78rem; display: block; margin-bottom: 2px; }
+.t-body span { color: rgba(240,235,224,0.58); font-size: 0.73rem; line-height: 1.6; }
+.s4-img { flex: 0 0 230px; display: flex; flex-direction: column; gap: 10px; }
+.s4-img .img-ph { max-width: 230px; aspect-ratio: 1/1; margin: 0; }
+.s4-img .img-ph:last-child { aspect-ratio: 1/0.7; }
+
+/* ═══════════ SLIDE 5 ═══════════ */
+.s5-bg { background: linear-gradient(140deg,#0d0d0d 40%,#0e2218 100%); }
+.s5-bg h2 { font-size: clamp(1.3rem,2.5vw,1.8rem) !important; margin-bottom: 6px !important; }
+.pills { display: flex; flex-wrap: wrap; gap: 9px; justify-content: center; max-width: 680px; margin: 14px auto 0; }
+.pill {
+  background: rgba(74,124,89,0.14);
+  border: 1px solid rgba(74,124,89,0.38);
+  border-radius: 100px; padding: 8px 18px;
+  font-size: 0.75rem; color: #a8d5b5;
+  display: flex; align-items: center; gap: 7px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.pill:hover { background: rgba(74,124,89,0.28); border-color: #4a7c59; }
+.s5-body { max-width: 800px; width: 100%; }
+.s5-desc {
+  font-size: 0.78rem; color: rgba(240,235,224,0.6);
+  line-height: 1.76; max-width: 700px; margin: 14px auto 0; text-align: center;
+}
+.quote-box {
+  max-width: 620px; margin: 16px auto 0;
+  border-left: 3px solid var(--earth); padding: 12px 20px;
+  text-align: left; background: rgba(200,169,110,0.05);
+  border-radius: 0 6px 6px 0;
+}
+.quote-box p {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 0.84rem; color: rgba(240,235,224,0.75); line-height: 1.7; margin: 0;
+}
+.quote-box cite { font-size: 0.66rem; color: var(--earth); letter-spacing: 0.1em; display: block; margin-top: 7px; font-style: normal; }
+
+/* ── ANIMATE IN (Reveal.js data-auto-animate) ── */
+[data-auto-animate] { transition: all 0.5s ease; }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ══════════════════ SLIDE 1 ══════════════════ -->
+<section data-transition="fade" data-background-color="#0d0d0d">
+  <div class="s-wrap s1-bg">
+    <div class="badge" data-aos>Docufilm · 2018</div>
+    <h1><em>Antropo</em>cene<br><span style="font-size:0.55em;color:rgba(240,235,224,0.55);">L'Epoca Umana</span></h1>
+    <p class="s1-subtitle">
+      Un viaggio visivo e scientifico attraverso le cicatrici impresse dall'umanità sulla Terra.
+      Analisi del docufilm diretto da <strong style="color:var(--earth)">Baichwal, Burtynsky e de Pencier</strong>
+      per comprendere come l'<em>homo sapiens</em> sia diventato una forza geologica globale.
+    </p>
+    <div class="divider"></div>
+    <p class="meta">M Tashriful Alom &nbsp;·&nbsp; Classe 3 BTLC &nbsp;·&nbsp; Maggio 2025</p>
+  </div>
+</section>
+
+<!-- ══════════════════ SLIDE 2 ══════════════════ -->
+<section data-transition="slide">
+  <div class="s-wrap s2-bg">
+    <p class="slide-label">01 / Il Docufilm</p>
+    <h2>Cos'è "Anthropocene:<br>The Human Epoch"?</h2>
+    <div class="s2-layout">
+      <div class="s2-text">
+        <p>
+          Frutto di una <strong>collaborazione quadriennale</strong> tra la regista Jennifer Baichwal,
+          il fotografo Edward Burtynsky e il direttore della fotografia Nicholas de Pencier,
+          questo lungometraggio del 2018 è una testimonianza visiva scioccante del nostro impatto sul pianeta.
+        </p>
+        <p>
+          Il film non si limita a mostrare panorami distrutti: segue da vicino
+          l'<strong>Anthropocene Working Group</strong>, un team internazionale di scienziati e geologi
+          che raccoglie prove fisiche nei sedimenti per determinare se l'attività umana abbia
+          spinto la Terra fuori dall'<em>Olocene</em> — l'epoca di stabilità climatica in cui siamo nati —
+          inaugurando una nuova, imprevedibile era dominata dall'uomo.
+        </p>
+        <p>
+          Le riprese spaziano dalla <strong>Cina alla Kenya</strong>, dall'Artico alla California,
+          restituendo un ritratto globale e senza sconti della civiltà dei consumi.
+        </p>
+      </div>
+      <div class="s2-img">
+        <!-- 🖼️ Sostituire con: <img src="poster.jpg" style="width:100%;border-radius:8px"> -->
+        <div class="img-ph">[ Poster del docufilm ]</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ SLIDE 3 ══════════════════ -->
+<section data-transition="slide">
+  <div class="s-wrap s3-bg">
+    <p class="slide-label">02 / Il Concetto</p>
+    <h2>Cosa significa "Antropocene"?</h2>
+    <!-- 🖼️ Sostituire con: <img src="mappa.jpg" style="max-width:680px;width:100%;border-radius:6px;margin:10px auto"> -->
+    <div class="img-ph-wide">[ Immagine panoramica – impatti umani sul pianeta ]</div>
+    <div class="grid4">
+      <div class="card">
+        <span class="icon">🌍</span>
+        <h3>Etimologia</h3>
+        <p>Dal greco <em>ánthrōpos</em> (uomo) + <em>kainos</em> (nuovo). Coniato da Eugene Stoermer e reso famoso dal premio Nobel Paul Crutzen nel 2000: l'essere umano non è più un semplice inquilino della Terra, ma il fattore primario che ne altera i cicli vitali.</p>
+      </div>
+      <div class="card">
+        <span class="icon">📅</span>
+        <h3>Quando è iniziato?</h3>
+        <p>La scienza propone gli anni '50 del '900 come data d'inizio — la cosiddetta <em>Grande Accelerazione</em>. I test nucleari di quell'epoca hanno lasciato radionuclidi come firma chimica indelebile nei terreni di tutto il mondo.</p>
+      </div>
+      <div class="card">
+        <span class="icon">🔬</span>
+        <h3>Chi lo studia?</h3>
+        <p>L'<em>Anthropocene Working Group</em> analizza carotaggi di ghiaccio, sedimenti marini e barriere coralline cercando il <em>Golden Spike</em>: la prova stratigrafica globale che separi nettamente il passato geologico dal presente modificato dall'uomo.</p>
+      </div>
+      <div class="card">
+        <span class="icon">⚠️</span>
+        <h3>Perché è importante?</h3>
+        <p>Non è una disputa accademica. Riconoscere ufficialmente l'Antropocene significa ammettere a livello politico e legislativo che siamo i soli responsabili della sopravvivenza dei futuri ecosistemi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ SLIDE 4 ══════════════════ -->
+<section data-transition="slide">
+  <div class="s-wrap s4-bg">
+    <p class="slide-label">03 / Le Prove</p>
+    <h2>I Segni dell'Impatto Umano</h2>
+    <div class="s4-layout">
+      <div class="timeline">
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-body">
+            <strong>Deforestazione & Agricoltura</strong>
+            <span>L'uomo ha modificato oltre il <em>75% della superficie terrestre</em> non coperta da ghiaccio. Foreste millenarie vengono rase al suolo per monoculture intensive e allevamenti, riducendo la biosfera a una macchina di produzione standardizzata.</span>
+          </div>
+        </div>
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-body">
+            <strong>Miniere a cielo aperto & Tecnofossili</strong>
+            <span>Spostiamo più terra e rocce ogni anno di tutti i fiumi e ghiacciai messi insieme. Il film mostra le <em>Cave di Carrara</em> e la miniera di Hambach in Germania, voragini artificiali visibili dallo spazio.</span>
+          </div>
+        </div>
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-body">
+            <strong>Inquinamento & Plastica</strong>
+            <span>Abbiamo sintetizzato materiali che la natura non sa riassorbire. Plastica, cementi e metalli industriali si accumulano nei fondali, creando uno strato artificiale che i geologi del futuro chiameranno <em>tecnofossili</em>.</span>
+          </div>
+        </div>
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-body">
+            <strong>Cambiamento Climatico</strong>
+            <span>Abbiamo rilasciato CO₂ a livelli mai visti negli ultimi <em>tre milioni di anni</em>. Il docufilm mostra le barriere coralline che imbiancano e muoiono a causa dell'acidificazione dei mari e dello scioglimento dei ghiacciai artici.</span>
+          </div>
+        </div>
+      </div>
+      <div class="s4-img">
+        <!-- 🖼️ Sostituire con immagini reali -->
+        <div class="img-ph" style="aspect-ratio:1/1">[ Miniera cielo aperto ]</div>
+        <div class="img-ph" style="aspect-ratio:1/0.75">[ Inquinamento / plastica ]</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ SLIDE 5 ══════════════════ -->
+<section data-transition="slide">
+  <div class="s-wrap s5-bg">
+    <p class="slide-label">04 / Riflessioni</p>
+    <h2>Cosa possiamo fare?</h2>
+    <div class="s5-body">
+      <div class="pills">
+        <div class="pill">♻️ Ridurre la plastica</div>
+        <div class="pill">🌱 Consumo sostenibile</div>
+        <div class="pill">☀️ Energie rinnovabili</div>
+        <div class="pill">🚶 Mobilità alternativa</div>
+        <div class="pill">🗣️ Sensibilizzare gli altri</div>
+        <div class="pill">🌳 Tutela delle foreste</div>
+      </div>
+      <p class="s5-desc">
+        Il documentario si apre e si chiude con una scena simbolica: il <strong style="color:var(--earth)">rogo di 105 tonnellate di zanne d'avorio in Kenya</strong>,
+        confiscate ai bracconieri. Questo gesto dimostra che l'impatto umano non è solo distruttivo,
+        ma può trasformarsi in presa di coscienza e azione attiva.
+        Se siamo diventati forti come un asteroide, abbiamo anche la <em>responsabilità</em> di invertire la rotta.
+        La transizione verso le rinnovabili, l'economia circolare e il consumo critico non sono scelte opzionali,
+        ma passaggi obbligati per garantire la nostra sopravvivenza sul pianeta che abbiamo ridisegnato.
+      </p>
+      <div class="quote-box">
+        <p>"Siamo la prima generazione a sentire gli effetti del cambiamento climatico e l'ultima ad avere il potere di agire prima che sia troppo tardi."</p>
+        <cite>— Anthropocene: The Human Epoch, 2018</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.js"></script>
+<script>
+Reveal.initialize({
+  hash: true,
+  slideNumber: 'c/t',
+  transition: 'slide',
+  transitionSpeed: 'default',
+  backgroundTransition: 'fade',
+  controls: true,
+  controlsTutorial: true,
+  progress: true,
+  center: false,
+  width: 1200,
+  height: 700,
+  margin: 0.03,
+  autoAnimateEasing: 'ease',
+  autoAnimateDuration: 0.6,
+});
+</script>
+</body>
+</html>
